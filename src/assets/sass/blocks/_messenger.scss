@@ -1,0 +1,51 @@
+.messenger {
+  display: grid;
+  grid-template-columns: 30% 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: 'bar bar' 'sidebar header' 'sidebar chat' ' sidebar textarea';
+  max-width: 992px;
+  width: 100%;
+
+  background-color: $color_blue;
+  border-radius: 5px;
+
+  transform: translateY(-50%);
+
+  position: absolute;
+  top: 50%;
+}
+
+.messenger__bar {
+  grid-area: bar;
+  max-height: 22px;
+  height: 100%;
+
+  background-color: #242f3d;
+}
+
+.messenger__header {
+  grid-area: header;
+
+  background-color: $color_darkGray;
+}
+
+.messenger__chat {
+  grid-area: chat;
+
+  background-color: $color_dark;
+}
+
+.messenger__textarea {
+  grid-area: textarea;
+
+  background-color: $color_darkGray;
+}
+
+.messenger__sidebar {
+  grid-area: sidebar;
+
+  background-color: $color_darkGray;
+  border-right: 1px solid $color_dark;
+}
+
+

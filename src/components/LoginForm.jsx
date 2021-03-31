@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import logo from '../assets/img/logo.png';
 
-const LoginForm = () => {
+const LoginForm = ({ setIsLoggedIn }) => {
   const [name, setName] = useState('');
   const [nickName, setNickName] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    setIsLoggedIn(true);
   };
 
   return (
