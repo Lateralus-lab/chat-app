@@ -1,0 +1,32 @@
+.input__group {
+  display: flex;
+  justify-content: center;
+}
+
+.input {
+  display: block;
+  margin-bottom: 35px;
+  width: 100%;
+
+  background: none;
+  border: 0;
+  border-bottom: 1px solid #465362;
+
+
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 14px;
+  color: $color_white;
+
+  transition: border-bottom-color 1s linear;
+
+  &::placeholder {
+    padding: 3px;
+    color: $color_textGray;
+  }
+
+  &:focus {
+    outline: 0;
+    border-bottom-color: $color_blue;
+  }
+}
+

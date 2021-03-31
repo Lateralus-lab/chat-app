@@ -2,7 +2,7 @@ import LoginForm from '../components/LoginForm';
 
 const Auth = () => {
   return (
-    <div>
+    <div className="auth">
       <LoginForm />
     </div>
   );

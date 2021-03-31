@@ -1,0 +1,32 @@
+.authorize {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.authorize__img {
+  margin: 0 auto;
+  max-width: 139px;
+  width: 100%;
+
+  background-color: #242f3d;
+  border-radius: 50%;
+}
+
+.authorize__title {
+  margin: 35px 0 16px;
+
+  color: $color_white;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.authorize__desc {
+  margin-bottom: 46px;
+  max-width: 298px;
+  width: 100%;
+
+  font-size: 14px;
+  font-weight: 300;
+  color: $color_textGray;
+}
