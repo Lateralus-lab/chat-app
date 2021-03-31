@@ -28,5 +28,9 @@
     outline: 0;
     border-bottom-color: $color_blue;
   }
+
+  @media(max-width: $breakpoint_sm) {
+    margin-bottom: 30px;
+  }
 }
 
