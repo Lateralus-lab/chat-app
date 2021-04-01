@@ -1,7 +1,10 @@
 .header {
   display: flex;
+  grid-area: header;
   justify-content: space-between;
   padding: 15px 15px;
+
+  background-color: $color_darkGray;
 }
 
 .header__title {

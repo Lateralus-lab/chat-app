@@ -27,29 +27,4 @@
   text-align: center;
 }
 
-.messenger__header {
-  grid-area: header;
-
-  background-color: $color_darkGray;
-}
-
-.messenger__chat {
-  grid-area: chat;
-
-  background-color: $color_dark;
-}
-
-.messenger__textarea {
-  grid-area: textarea;
-
-  background-color: $color_darkGray;
-}
-
-.messenger__sidebar {
-  grid-area: sidebar;
-
-  background-color: $color_darkGray;
-  border-right: 1px solid $color_dark;
-}
-
 

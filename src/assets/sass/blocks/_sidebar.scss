@@ -1,3 +1,9 @@
+.sidebar {
+  grid-area: sidebar;
+
+  background-color: $color_darkGray;
+  border-right: 1px solid $color_dark;
+}
 .sidebar__search {
   display: flex;
   justify-content: center;
