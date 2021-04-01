@@ -34,3 +34,29 @@
   }
 }
 
+.input__search {
+  display: block;
+  max-width: 230px;
+  width: 100%;
+  height: 35px;
+
+  background-color: #242f3d;
+  border-radius: 5px;
+  border: 0;
+
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 14px;
+  font-size: 14px;
+  color: $color_white;
+
+  &::placeholder {
+    padding: 30px 2px;
+
+    color: $color_textGray;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+}
+

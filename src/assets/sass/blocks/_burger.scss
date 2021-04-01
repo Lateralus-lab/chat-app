@@ -1,0 +1,26 @@
+.burger {
+  display: block;
+  width: 30px;
+  height: 23px;
+  position: relative;
+
+  background: none;
+  border: 0;
+
+  font-size: 0;
+  color: 0;
+  cursor: pointer;
+
+  &focus {
+    outline: 0;  
+  }
+}
+
+.burger__line {
+  display: block;
+  width: 26px;
+  height: 3px;
+  margin: 6px 0;
+
+  background-color: $color_textGray;
+}

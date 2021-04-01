@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 15px;
+}
+
+.header__title {
+  margin-bottom: 3px;
+
+  font-size: 14px;
+  color: $color_white;
+}
+
+.header__online {
+  font-size: 14px;
+  color: $color_textGray;
+}
