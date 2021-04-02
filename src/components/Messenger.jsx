@@ -1,3 +1,5 @@
+import Chat from './Chat';
+import Text from './Text';
 import Sidebar from './Sidebar';
 
 const Messenger = () => {
@@ -17,8 +19,8 @@ const Messenger = () => {
           </div>
         </div>
       </div>
-      <div className="chat">Chat</div>
-      <div className="text">Textarea</div>
+      <Chat />
+      <Text />
       <Sidebar />
     </div>
   );

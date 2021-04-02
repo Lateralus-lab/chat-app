@@ -1,10 +1,12 @@
+import User from './User';
+
 const Sidebar = () => {
   return (
     <div className="sidebar">
       <div className="sidebar__search">
         <input className="input__search" placeholder="Search..." />
       </div>
-      <div className="sidebar__user">Eli Krizevski</div>
+      <User />
     </div>
   );
 };

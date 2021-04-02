@@ -1,0 +1,33 @@
+.user {
+  display: flex;
+  max-width: 200px;
+  width: 100%;
+  padding: 12px 0 8px;
+}
+
+.user__item {
+  display: flex;
+  flex-direction: column;
+  padding: 5px 12px;
+}
+
+.user__photo {
+  padding-left: 20px;
+}
+
+.user__img {
+  width: 47px;
+  height: 47px;
+}
+
+.user__name {
+  font-size: 14px;
+  font-weight: 300;
+  color: $color_white;
+}
+
+.user__message {
+  font-size: 14px;
+  font-weight: 300;
+  color: $color_textGray;
+}
