@@ -1,10 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import firebase from '../firebase';
 import Message from './Message';
 
 const Channel = ({ user = null, db = null }) => {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState('');
+
+  const dummy = useRef();
 
   const { uid, displayName, photoURL } = user;
 
@@ -13,13 +15,15 @@ const Channel = ({ user = null, db = null }) => {
       const unsubscribe = db
         .collection('messages')
         .orderBy('createdAt')
-        .limit(25)
+        .limit(100)
         .onSnapshot((querySnapshot) => {
           const data = querySnapshot.docs.map((doc) => ({
             ...doc.data(),
             id: doc.id,
           }));
+
           setMessages(data);
+          dummy.current.scrollIntoView({ behavior: 'smooth' });
         });
       return unsubscribe;
     }
@@ -47,13 +51,14 @@ const Channel = ({ user = null, db = null }) => {
 
   return (
     <div className="channel">
-      <ul>
+      <ul className="message">
         {messages.map((message) => (
           <li key={message.id}>
             <Message {...message} />
           </li>
         ))}
       </ul>
+      <span ref={dummy}></span>
       <form className="write" onSubmit={handleOnSubmit}>
         <div className="write__textarea">
           <input

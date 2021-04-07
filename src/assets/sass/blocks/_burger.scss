@@ -14,6 +14,10 @@
   &focus {
     outline: 0;  
   }
+
+  &:hover > .burger__line {
+    background-color: $color_white;
+  }
 }
 
 .burger__line {
@@ -23,4 +27,6 @@
   margin: 6px 0;
 
   background-color: $color_textGray;
+
+  transition: background .3s ease-out;
 }
