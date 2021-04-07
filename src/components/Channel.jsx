@@ -41,6 +41,8 @@ const Channel = ({ user = null, db = null }) => {
         photoURL,
       });
     }
+
+    setNewMessage('');
   };
 
   return (
@@ -52,16 +54,25 @@ const Channel = ({ user = null, db = null }) => {
           </li>
         ))}
       </ul>
-      <form onSubmit={handleOnSubmit}>
-        <input
-          type="text"
-          value={newMessage}
-          placeholder="Write a message..."
-          onChange={handleOnChange}
-        />
-        <button type="submit" disabled={!newMessage}>
-          Send
-        </button>
+      <form className="write" onSubmit={handleOnSubmit}>
+        <div className="write__textarea">
+          <input
+            className="input__textarea"
+            type="text"
+            value={newMessage}
+            placeholder="Write a message..."
+            onChange={handleOnChange}
+          />
+        </div>
+        <div className="write__item">
+          <button
+            className="btn btn-small"
+            type="submit"
+            disabled={!newMessage}
+          >
+            Send
+          </button>
+        </div>
       </form>
     </div>
   );

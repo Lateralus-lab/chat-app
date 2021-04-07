@@ -1,0 +1,16 @@
+.write {
+  grid-area: message;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  background-color: $color_darkGray;
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.write__textarea {
+  width: 100%;
+}

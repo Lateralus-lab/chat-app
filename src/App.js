@@ -4,7 +4,6 @@ import './assets/sass/style.scss';
 // Import components
 import Auth from './pages/Auth';
 import Main from './pages/Main';
-import Button from './components/Button';
 
 const App = () => {
   const auth = firebase.auth();
@@ -27,23 +26,10 @@ const App = () => {
     return unsubscribe;
   }, []); // eslint-disable-line
 
-  const signOut = async () => {
-    try {
-      await firebase.auth().signOut();
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   if (initializing) return 'Loading...';
 
   return (
-    <div className="App">
-      {user ? <Main user={user} db={db} /> : <Auth />}
-      <div>
-        <Button onClick={signOut}>Sign Out</Button>
-      </div>
-    </div>
+    <div className="App">{user ? <Main user={user} db={db} /> : <Auth />}</div>
   );
 };
 
