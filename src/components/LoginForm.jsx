@@ -1,19 +1,24 @@
-import { useState } from 'react';
+import firebase from '../firebase';
+import Button from './Button';
 import logo from '../assets/img/logo.png';
 
-const LoginForm = ({ setIsLoggedIn }) => {
-  const [name, setName] = useState('');
-  const [nickName, setNickName] = useState('');
+const LoginForm = () => {
+  const auth = firebase.auth();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const signInWithGoogle = async () => {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    auth.useDeviceLanguage();
 
-    setIsLoggedIn(true);
+    try {
+      await auth.signInWithPopup(provider);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
     <div className="wrapper">
-      <form className="form" autoComplete="off" onSubmit={handleSubmit}>
+      <div className="form">
         <div className="authorize">
           <div className="authorize__img">
             <img className="logo__img" alt="logo" src={logo} />
@@ -23,28 +28,12 @@ const LoginForm = ({ setIsLoggedIn }) => {
             Please enter your name and nickname for further authorization
           </div>
         </div>
-        <div className="input__group">
-          <input
-            className="input"
-            type="text"
-            placeholder="Name"
-            onChange={(e) => setName(e.target.value)}
-          />
-        </div>
-        <div className="input__group">
-          <input
-            className="input"
-            type="text"
-            placeholder="Nickname"
-            onChange={(e) => setNickName(e.target.value)}
-          />
-        </div>
         <div className="centered">
-          <button className="btn" type="submit">
-            Login
-          </button>
+          <div>
+            <Button onClick={signInWithGoogle}>Sign in with Google</Button>
+          </div>
         </div>
-      </form>
+      </div>
     </div>
   );
 };

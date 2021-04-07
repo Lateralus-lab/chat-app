@@ -1,8 +1,6 @@
-import Chat from './Chat';
-import Text from './Text';
-import Sidebar from './Sidebar';
+import Channel from './Channel';
 
-const Messenger = () => {
+const Messenger = ({ user, db }) => {
   return (
     <div className="messenger">
       <div className="messenger__bar">Messenger</div>
@@ -19,9 +17,9 @@ const Messenger = () => {
           </div>
         </div>
       </div>
-      <Chat />
-      <Text />
-      <Sidebar />
+      <Channel user={user} db={db} />
+      <div className="message"></div>
+      <div className="sidebar"></div>
     </div>
   );
 };

@@ -1,13 +1,12 @@
 .messenger {
   display: grid;
   grid-template-columns: 30% 1fr;
-  grid-template-rows: auto 67px 620px;
-  grid-template-areas: 'bar bar' 'sidebar header' 'sidebar chat' ' sidebar textarea';
-  max-width: 992px;
+  grid-template-rows: auto 67px 1200px 50px;
+  grid-template-areas: 'bar bar' 'sidebar header' 'sidebar channel' 'sidebar message';
+  max-width: 1400px;
   width: 100%;
 
   background-color: $color_blue;
-  border-radius: 5px;
 
   transform: translateY(-50%);
 
@@ -26,5 +25,3 @@
   color: $color_textGray;
   text-align: center;
 }
-
-

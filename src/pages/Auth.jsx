@@ -1,9 +1,9 @@
 import LoginForm from '../components/LoginForm';
 
-const Auth = ({ setIsLoggedIn }) => {
+const Auth = () => {
   return (
     <div className="auth">
-      <LoginForm setIsLoggedIn={setIsLoggedIn} />
+      <LoginForm />
     </div>
   );
 };
