@@ -7,15 +7,17 @@
   background-color: $color_darkGray;
 }
 
-.header__left {
-  width: 80%;
-}
-
 .header__title {
   margin-bottom: 3px;
 
   font-size: 14px;
   color: $color_white;
+}
+
+.header__item {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 5px;
 }
 
 .header__online {

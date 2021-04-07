@@ -23,6 +23,7 @@ const Channel = ({ user = null, db = null }) => {
           }));
 
           setMessages(data);
+          // scroll down when data fetched
           dummy.current.scrollIntoView({ behavior: 'smooth' });
         });
       return unsubscribe;

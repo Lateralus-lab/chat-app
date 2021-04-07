@@ -3,6 +3,7 @@
   grid-template-columns: 30% 1fr;
   grid-template-rows: auto 67px 1200px;
   grid-template-areas: 'bar bar' 'sidebar header' 'sidebar channel';
+  margin: 0 8px;
   max-width: 1400px;
   width: 100%;
 
@@ -12,6 +13,15 @@
 
   position: absolute;
   top: 50%;
+
+  @media (max-width: $breakpoint_md) {
+    grid-template-rows: auto 67px calc(100vh - 95px);
+    grid-template-areas: 'bar bar' 'header header' 'channel channel';
+  }
+
+  @media (max-width: $breakpoint_sm) {
+    margin: 0 2px;
+  }
 }
 
 .messenger__bar {

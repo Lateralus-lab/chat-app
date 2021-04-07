@@ -3,4 +3,8 @@
 
   background-color: $color_darkGray;
   border-right: 1px solid $color_dark;
+
+  @media (max-width: $breakpoint_md) {
+    display: none;
+  }
 }

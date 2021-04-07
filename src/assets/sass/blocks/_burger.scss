@@ -1,3 +1,4 @@
+@media (max-width: $breakpoint_md) {
 .burger {
   display: block;
   width: 30px;
@@ -29,4 +30,5 @@
   background-color: $color_textGray;
 
   transition: background .3s ease-out;
+}
 }

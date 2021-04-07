@@ -1,6 +1,6 @@
 import firebase from '../firebase';
 
-const Header = () => {
+const Header = ({ showSidebar, setShowSidebar }) => {
   const signOut = async () => {
     try {
       await firebase.auth().signOut();
@@ -17,16 +17,18 @@ const Header = () => {
       </div>
 
       <div className="header__item">
-        <button className="btn btn-dark" onClick={signOut}>
-          Sign Out
-        </button>
-      </div>
+        <div className="header__item header__item-left">
+          <button className="btn btn-dark" onClick={signOut}>
+            Sign Out
+          </button>
+        </div>
 
-      <div className="header__item">
-        <div className="burger">
-          <div className="burger__line"></div>
-          <div className="burger__line"></div>
-          <div className="burger__line"></div>
+        <div className="header__item header__item-right">
+          <div className="burger" onClick={() => setShowSidebar(!showSidebar)}>
+            <div className="burger__line"></div>
+            <div className="burger__line"></div>
+            <div className="burger__line"></div>
+          </div>
         </div>
       </div>
     </div>

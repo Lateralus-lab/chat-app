@@ -1,13 +1,18 @@
+import { useState } from 'react';
+// Components
 import Header from './Header';
 import Channel from './Channel';
+import Sidebar from './Sidebar';
 
 const Messenger = ({ user, db }) => {
+  const [showSidebar, setShowSidebar] = useState(true);
+
   return (
     <div className="messenger">
       <div className="messenger__bar">Messenger</div>
-      <Header />
+      <Header showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
       <Channel user={user} db={db} />
-      <div className="sidebar"></div>
+      {showSidebar ? <Sidebar /> : null}
     </div>
   );
 };
