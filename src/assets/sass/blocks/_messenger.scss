@@ -3,7 +3,6 @@
   grid-template-columns: 30% 1fr;
   grid-template-rows: auto 67px 1200px;
   grid-template-areas: 'bar bar' 'sidebar header' 'sidebar channel';
-  margin: 0 8px;
   max-width: 1400px;
   width: 100%;
 
@@ -28,10 +27,13 @@
   grid-area: bar;
   max-height: 22px;
   height: 100%;
+  position: relative;
 
   background-color: #242f3d;
 
   font-size: 16px;
   color: $color_textGray;
   text-align: center;
+
+  z-index: 2;
 }

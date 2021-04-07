@@ -1,6 +1,6 @@
 import firebase from '../firebase';
 
-const Header = ({ showSidebar, setShowSidebar }) => {
+const Header = ({ showMobbar, setShowMobbar }) => {
   const signOut = async () => {
     try {
       await firebase.auth().signOut();
@@ -19,12 +19,12 @@ const Header = ({ showSidebar, setShowSidebar }) => {
       <div className="header__item">
         <div className="header__item header__item-left">
           <button className="btn btn-dark" onClick={signOut}>
-            Sign Out
+            Sign out
           </button>
         </div>
 
         <div className="header__item header__item-right">
-          <div className="burger" onClick={() => setShowSidebar(!showSidebar)}>
+          <div className="burger" onClick={() => setShowMobbar(!showMobbar)}>
             <div className="burger__line"></div>
             <div className="burger__line"></div>
             <div className="burger__line"></div>

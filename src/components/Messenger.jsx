@@ -3,16 +3,18 @@ import { useState } from 'react';
 import Header from './Header';
 import Channel from './Channel';
 import Sidebar from './Sidebar';
+import Mobbar from './Mobbar';
 
 const Messenger = ({ user, db }) => {
-  const [showSidebar, setShowSidebar] = useState(true);
+  const [showMobbar, setShowMobbar] = useState(true);
 
   return (
     <div className="messenger">
       <div className="messenger__bar">Messenger</div>
-      <Header showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
+      <Header showMobbar={showMobbar} setShowMobbar={setShowMobbar} />
       <Channel user={user} db={db} />
-      {showSidebar ? <Sidebar /> : null}
+      <Sidebar />
+      {showMobbar ? <Mobbar showMobbar={showMobbar} /> : null}
     </div>
   );
 };
