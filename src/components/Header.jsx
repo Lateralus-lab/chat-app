@@ -24,7 +24,10 @@ const Header = ({ showMobbar, setShowMobbar }) => {
         </div>
 
         <div className="header__item header__item-right">
-          <div className="burger" onClick={() => setShowMobbar(!showMobbar)}>
+          <div
+            className={showMobbar ? 'burger active' : 'burger'}
+            onClick={() => setShowMobbar(!showMobbar)}
+          >
             <div className="burger__line"></div>
             <div className="burger__line"></div>
             <div className="burger__line"></div>

@@ -15,10 +15,10 @@
   &focus {
     outline: 0;  
   }
+}
 
-  &:hover > .burger__line {
+.burger.active > .burger__line {
     background-color: $color_white;
-  }
 }
 
 .burger__line {

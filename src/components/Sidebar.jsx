@@ -1,7 +1,10 @@
-const Sidebar = () => {
+const Sidebar = ({ user }) => {
+  const { displayName, photoURL } = user;
+
   return (
     <div className="sidebar">
-      <h3>Sidebar</h3>
+      <div>{displayName}</div>
+      <img src={photoURL} alt="Avatar" />
     </div>
   );
 };

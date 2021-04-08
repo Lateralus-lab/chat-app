@@ -6,14 +6,14 @@ import Sidebar from './Sidebar';
 import Mobbar from './Mobbar';
 
 const Messenger = ({ user, db }) => {
-  const [showMobbar, setShowMobbar] = useState(true);
+  const [showMobbar, setShowMobbar] = useState(false);
 
   return (
     <div className="messenger">
       <div className="messenger__bar">Messenger</div>
       <Header showMobbar={showMobbar} setShowMobbar={setShowMobbar} />
       <Channel user={user} db={db} />
-      <Sidebar />
+      <Sidebar user={user} />
       {showMobbar ? <Mobbar showMobbar={showMobbar} /> : null}
     </div>
   );
