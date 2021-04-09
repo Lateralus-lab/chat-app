@@ -1,6 +1,6 @@
 import firebase from '../firebase';
 
-const Header = ({ showMobbar, setShowMobbar }) => {
+const Header = ({ showMobbar, setShowMobbar, uniqueCount }) => {
   const signOut = async () => {
     try {
       await firebase.auth().signOut();
@@ -13,7 +13,7 @@ const Header = ({ showMobbar, setShowMobbar }) => {
     <div className="header">
       <div className="header__left">
         <div className="header__title">Room</div>
-        <div className="header__online">2 users online</div>
+        <div className="header__online">{uniqueCount}</div>
       </div>
 
       <div className="header__item">
