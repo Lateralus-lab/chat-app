@@ -31,7 +31,7 @@ const Channel = ({ user = null, db = null, setUniqueCount }) => {
   }, [db]);
 
   useEffect(() => {
-    // get user count
+    // get active user count
     countActiveUsers(messages);
   });
 
@@ -68,13 +68,13 @@ const Channel = ({ user = null, db = null, setUniqueCount }) => {
 
   return (
     <div className="channel">
-      <ul className="message">
+      <div className="channel__item">
         {messages.map((message) => (
-          <li key={message.id}>
+          <div key={message.id}>
             <Message {...message} />
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
       <span ref={dummy}></span>
       <form className="write" onSubmit={handleOnSubmit}>
         <div className="write__textarea">
