@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import firebase from '../firebase';
 import Message from './Message';
 
-const Channel = ({ user = null, db = null, setUniqueCount }) => {
+const Channel = ({ user = null, db = null, ...props }) => {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState('');
 
@@ -31,9 +31,11 @@ const Channel = ({ user = null, db = null, setUniqueCount }) => {
   }, [db]);
 
   useEffect(() => {
-    // get active user count
+    // count all active users
     countActiveUsers(messages);
-  });
+    // get users names
+    getUsersName(messages);
+  }, [messages]); // eslint-disable-line
 
   const handleOnChange = (e) => {
     setNewMessage(e.target.value);
@@ -55,15 +57,26 @@ const Channel = ({ user = null, db = null, setUniqueCount }) => {
   };
 
   const countActiveUsers = (messages) => {
-    const activeUsers = messages.reduce((acc, message) => {
+    const countUsers = messages.reduce((acc, message) => {
       if (!acc.includes(message.uid)) {
         acc.push(message.uid);
       }
       return acc;
     }, []);
 
-    const numUniqueUsers = `${activeUsers.length} active users`;
-    setUniqueCount(numUniqueUsers);
+    const numUniqueUsers = `${countUsers.length} active users today`;
+    props.setUniqueCount(numUniqueUsers);
+  };
+
+  const getUsersName = (messages) => {
+    const usersName = messages.reduce((acc, message) => {
+      if (!acc.includes(message.displayName)) {
+        acc.push(message.displayName);
+      }
+      return acc;
+    }, []);
+
+    props.setUniqueName(usersName);
   };
 
   return (

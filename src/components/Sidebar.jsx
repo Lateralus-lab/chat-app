@@ -1,10 +1,12 @@
-const Sidebar = ({ user }) => {
-  const { displayName, photoURL } = user;
-
+const Sidebar = ({ uniqueName }) => {
   return (
     <div className="sidebar">
-      <div>{displayName}</div>
-      <img src={photoURL} alt="Avatar" />
+      <h3>Sidebar</h3>
+      <div>
+        {uniqueName.map((name, i) => (
+          <div key={i}>{name}</div>
+        ))}
+      </div>
     </div>
   );
 };
