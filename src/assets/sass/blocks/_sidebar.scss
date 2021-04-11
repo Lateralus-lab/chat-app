@@ -1,8 +1,25 @@
 .sidebar {
   grid-area: sidebar;
+  overflow-y: scroll;
 
   background-color: $color_darkGray;
   border-right: 1px solid $color_dark;
+
+  scrollbar-color: #1e1e24 #6649b8;
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar {
+  width: 0.25rem;
+}
+
+  &::-webkit-scrollbar-track {
+  background: #1e1e24;
+}
+
+
+  &::-webkit-scrollbar-thumb {
+  background: #6649b8;
+}
 
   @media (max-width: $breakpoint_md) {
     max-width: 60%;
@@ -22,4 +39,15 @@
    transition: 350ms;
 
    left: 0;
+}
+
+.sidebar__title {
+  margin-top: 12px;
+
+  color:  #858e97;
+  text-align: center;
+
+  @media (max-width: $breakpoint_md) {
+    margin-top: 40px;
+  }
 }

@@ -4,6 +4,7 @@ import './assets/sass/style.scss';
 // Import components
 import Auth from './pages/Auth';
 import Main from './pages/Main';
+import Spinner from './components/Spinner';
 
 const App = () => {
   const auth = firebase.auth();
@@ -26,7 +27,7 @@ const App = () => {
     return unsubscribe;
   }, []); // eslint-disable-line
 
-  if (initializing) return 'Loading...';
+  if (initializing) return <Spinner />;
 
   return (
     <div className="App">{user ? <Main user={user} db={db} /> : <Auth />}</div>

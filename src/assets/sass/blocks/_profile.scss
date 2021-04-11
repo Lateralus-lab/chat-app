@@ -2,14 +2,16 @@
   display: flex;
 }
 
+.profile__item {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  align-content: center;
+}
+
 .profile__img {
   width: 100%;
   padding: 20px 10px;
-}
-
-.profile__name {
-  // align-self: center;
-  padding-bottom: 8px;
 }
 
 .profile__avatar {
@@ -17,4 +19,14 @@
   height: 65px;
 
   border-radius: 50%;
+}
+
+.profile__name {
+  padding: 25px 10px;
+  height: 100%;
+  margin: auto 0;
+
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
 }

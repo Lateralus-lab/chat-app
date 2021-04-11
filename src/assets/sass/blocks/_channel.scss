@@ -7,6 +7,9 @@
 
   background-color: $color_dark;
 
+  scrollbar-color: #1e1e24 #6649b8;
+  scrollbar-width: thin;
+
   &::-webkit-scrollbar {
   width: 0.25rem;
 }
