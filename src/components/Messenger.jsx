@@ -7,6 +7,7 @@ import Mobbar from './Mobbar';
 
 const Messenger = ({ user, db }) => {
   const [uniqueCount, setUniqueCount] = useState('');
+  const [uniqueAvatar, setUniqueAvatar] = useState('');
   const [uniqueName, setUniqueName] = useState('');
   const [showMobbar, setShowMobbar] = useState(false);
 
@@ -20,11 +21,12 @@ const Messenger = ({ user, db }) => {
       />
       <Channel
         setUniqueCount={setUniqueCount}
+        setUniqueAvatar={setUniqueAvatar}
         setUniqueName={setUniqueName}
         user={user}
         db={db}
       />
-      <Sidebar uniqueName={uniqueName} />
+      <Sidebar uniqueAvatar={uniqueAvatar} uniqueName={uniqueName} />
       {showMobbar ? <Mobbar showMobbar={showMobbar} /> : null}
     </div>
   );

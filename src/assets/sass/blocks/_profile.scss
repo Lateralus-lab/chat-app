@@ -1,0 +1,20 @@
+.profile {
+  display: flex;
+}
+
+.profile__img {
+  width: 100%;
+  padding: 20px 10px;
+}
+
+.profile__name {
+  // align-self: center;
+  padding-bottom: 8px;
+}
+
+.profile__avatar {
+  width: 65px;
+  height: 65px;
+
+  border-radius: 50%;
+}

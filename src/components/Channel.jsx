@@ -33,8 +33,12 @@ const Channel = ({ user = null, db = null, ...props }) => {
   useEffect(() => {
     // count all active users
     countActiveUsers(messages);
-    // get users names
-    getUsersName(messages);
+    if (messages.length >= 1) {
+      // get users name
+      getUsersName(messages);
+      // get users avatar
+      getUsersAvatar(messages);
+    }
   }, [messages]); // eslint-disable-line
 
   const handleOnChange = (e) => {
@@ -64,8 +68,19 @@ const Channel = ({ user = null, db = null, ...props }) => {
       return acc;
     }, []);
 
-    const numUniqueUsers = `${countUsers.length} active users today`;
+    const numUniqueUsers = `${countUsers.length} active users`;
     props.setUniqueCount(numUniqueUsers);
+  };
+
+  const getUsersAvatar = (messages) => {
+    const usersAvatar = messages.reduce((acc, message) => {
+      if (!acc.includes(message.photoURL)) {
+        acc.push(message.photoURL);
+      }
+      return acc;
+    }, []);
+
+    props.setUniqueAvatar(usersAvatar);
   };
 
   const getUsersName = (messages) => {

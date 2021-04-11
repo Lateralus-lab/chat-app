@@ -1,12 +1,10 @@
-const Sidebar = ({ uniqueName }) => {
+import Profile from './Profile';
+
+const Sidebar = ({ uniqueName, uniqueAvatar }) => {
   return (
     <div className="sidebar">
       <h3>Sidebar</h3>
-      <div>
-        {uniqueName.map((name, i) => (
-          <div key={i}>{name}</div>
-        ))}
-      </div>
+      <Profile uniqueName={uniqueName} uniqueAvatar={uniqueAvatar} />
     </div>
   );
 };
