@@ -1,8 +1,8 @@
 import Profile from './Profile';
 
-const Sidebar = ({ uniqueName, uniqueAvatar }) => {
+const Sidebar = ({ showSidebar, uniqueName, uniqueAvatar }) => {
   return (
-    <div className="sidebar">
+    <div className={showSidebar ? 'sidebar active' : 'sidebar'}>
       <h3>Sidebar</h3>
       <Profile uniqueName={uniqueName} uniqueAvatar={uniqueAvatar} />
     </div>

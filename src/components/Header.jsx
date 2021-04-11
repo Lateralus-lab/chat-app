@@ -1,6 +1,6 @@
 import firebase from '../firebase';
 
-const Header = ({ showMobbar, setShowMobbar, uniqueCount }) => {
+const Header = ({ showSidebar, setShowSidebar, uniqueCount }) => {
   const signOut = async () => {
     try {
       await firebase.auth().signOut();
@@ -25,8 +25,8 @@ const Header = ({ showMobbar, setShowMobbar, uniqueCount }) => {
 
         <div className="header__item header__item-right">
           <div
-            className={showMobbar ? 'burger active' : 'burger'}
-            onClick={() => setShowMobbar(!showMobbar)}
+            className={showSidebar ? 'burger active' : 'burger'}
+            onClick={() => setShowSidebar(!showSidebar)}
           >
             <div className="burger__line"></div>
             <div className="burger__line"></div>

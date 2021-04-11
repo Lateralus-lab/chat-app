@@ -5,6 +5,21 @@
   border-right: 1px solid $color_dark;
 
   @media (max-width: $breakpoint_md) {
-    display: none;
-  }
+    max-width: 60%;
+    width: 100%;
+    height: 100vh;
+
+    transition: 850ms;
+
+    position: fixed;
+    top: 0;
+    left: -100%;
+
+}
+}
+
+.sidebar.active {
+   transition: 350ms;
+
+   left: 0;
 }
