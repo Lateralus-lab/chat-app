@@ -1,9 +1,12 @@
+import { useState } from 'react';
 import firebase from '../firebase';
-import Button from './Button';
-import logo from '../assets/img/logo.png';
+import Authorize from './Authorize';
 
 const LoginForm = () => {
   const auth = firebase.auth();
+
+  const [name, setName] = useState('');
+  const [nickName, setNickName] = useState('');
 
   const signInWithGoogle = async () => {
     const provider = new firebase.auth.GoogleAuthProvider();
@@ -19,18 +22,31 @@ const LoginForm = () => {
   return (
     <div className="wrapper">
       <div className="form">
-        <div className="authorize">
-          <div className="authorize__img">
-            <img className="logo__img" alt="logo" src={logo} />
-          </div>
-          <h3 className="authorize__title">Authorization</h3>
-          <div className="authorize__desc">
-            Please enter your name and nickname for further authorization
-          </div>
+        <Authorize />
+        <div className="input__group">
+          <input
+            className="input"
+            type="text"
+            placeholder="Name"
+            onChange={(e) => setName(e.target.value)}
+          />
+        </div>
+        <div className="input__group">
+          <input
+            className="input"
+            type="text"
+            placeholder="Nickname"
+            onChange={(e) => setNickName(e.target.value)}
+          />
         </div>
         <div className="centered">
+          <button className="btn" type="submit">
+            Login
+          </button>
           <div>
-            <Button onClick={signInWithGoogle}>Sign in with Google</Button>
+            <button className="btn btn-dark" onClick={signInWithGoogle}>
+              Sign in with Google
+            </button>
           </div>
         </div>
       </div>

@@ -1,9 +1,11 @@
 import LoginForm from '../components/LoginForm';
+import RegForm from '../components/RegForm';
 
 const Auth = () => {
   return (
     <div className="auth">
-      <LoginForm />
+      {/* <LoginForm /> */}
+      <RegForm />
     </div>
   );
 };
