@@ -1,8 +1,11 @@
 const Profile = ({ uniqueAvatar, uniqueName }) => {
   const avatars = uniqueAvatar
-    ? uniqueAvatar.map((avatar, i) => (
-        <div className="profile__img">
-          <img className="profile__avatar" key={i} src={avatar} alt="avatar" />
+    ? uniqueAvatar.map((avatar) => (
+        <div
+          className="profile__img"
+          key={Math.random().toString(36).substr(2, 9)}
+        >
+          <img className="profile__avatar" src={avatar} alt="avatar" />
         </div>
       ))
     : null;
