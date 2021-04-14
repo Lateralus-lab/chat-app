@@ -1,13 +1,38 @@
 import firebase from '../firebase';
 import { formatRelative } from 'date-fns';
 import avatar from '../assets/img/default-avatar.png';
+import { useEffect, useRef, useState } from 'react';
 
-const Message = ({ createdAt = null, text = '', uid, photoURL = '' }) => {
+const Message = ({
+  createdAt = null,
+  displayName = '',
+  text = '',
+  uid,
+  photoURL = '',
+}) => {
   const auth = firebase.auth();
   const messageClass = uid === auth.currentUser.uid ? 'sent' : '';
 
+  const useHoover = () => {
+    const ref = useRef();
+    const [hovered, setHovered] = useState(false);
+
+    const enter = () => setHovered(true);
+    const leave = () => setHovered(false);
+
+    useEffect(() => {
+      ref.current.addEventListener('mouseenter', enter);
+      ref.current.addEventListener('mouseleave', leave);
+    }, [ref]);
+
+    return [ref, hovered];
+  };
+
+  const [ref, hovered] = useHoover();
+
   return (
-    <div className={`message ${messageClass}`}>
+    <div className={`message ${messageClass}`} ref={ref}>
+      {hovered ? <div className="message__name">{displayName}</div> : null}
       <div className="message__img">
         {photoURL ? (
           <img

@@ -3,10 +3,19 @@
   flex-direction: row;
   padding: 10px 0;
   align-items: center;
+  position: relative;
 
   &.sent {
     flex-direction: row-reverse;
   }
+}
+
+.message__name {
+  font-size: 14px;
+  color: #7a8c9e;
+
+  position: absolute;
+  top: -5px;
 }
 
 .message__img {
