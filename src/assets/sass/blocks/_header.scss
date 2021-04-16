@@ -1,0 +1,26 @@
+.header {
+  grid-area: header;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+
+  background-color: $color_darkGray;
+}
+
+.header__title {
+  margin-bottom: 3px;
+
+  font-size: 14px;
+  color: $color_white;
+}
+
+.header__item {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 5px;
+}
+
+.header__online {
+  font-size: 14px;
+  color: $color_textGray;
+}

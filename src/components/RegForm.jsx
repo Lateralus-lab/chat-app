@@ -1,13 +1,12 @@
 import { useState } from 'react';
 import firebase from '../firebase';
+import md5 from 'md5';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import logo from '../assets/img/logo.png';
 
-const LoginForm = ({ setIsRegistered }) => {
+const RegForm = ({ setIsRegistered }) => {
   const [showError, setShowError] = useState('');
-
-  const auth = firebase.auth();
 
   const {
     handleSubmit,
@@ -18,23 +17,36 @@ const LoginForm = ({ setIsRegistered }) => {
     handleBlur,
   } = useFormik({
     initialValues: {
+      username: '',
       email: '',
       password: '',
+      confirmPassword: '',
     },
     validationSchema: Yup.object({
+      username: Yup.string()
+        .max(20, 'Must be 20 characters or less')
+        .required('Required'),
       email: Yup.string()
         .email('Email is invalid')
         .required('Email is required'),
       password: Yup.string()
         .min(6, 'Password must be at least 6 characters')
         .required('Password is required'),
+      confirmPassword: Yup.string()
+        .oneOf([Yup.ref('password'), null], 'Password must match')
+        .required('Password confirmation is required'),
     }),
-    onSubmit: ({ email, password }) => {
+    onSubmit: ({ username, email, password }) => {
       firebase
         .auth()
-        .signInWithEmailAndPassword(email, password)
-        .then((signedInUser) => {
-          console.log(signedInUser);
+        .createUserWithEmailAndPassword(email, password)
+        .then((createdUser) => {
+          createdUser.user.updateProfile({
+            displayName: username,
+            photoURL: `http://gravatar.com/avatar/${md5(
+              createdUser.user.email
+            )}?d=identicon`,
+          });
         })
         .catch((err) => {
           console.log(err);
@@ -43,21 +55,10 @@ const LoginForm = ({ setIsRegistered }) => {
     },
   });
 
-  const signInWithGoogle = async () => {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    auth.useDeviceLanguage();
-
-    try {
-      await auth.signInWithPopup(provider);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   const handleUser = (e) => {
     e.preventDefault();
 
-    setIsRegistered(false);
+    setIsRegistered(true);
   };
 
   return (
@@ -67,10 +68,25 @@ const LoginForm = ({ setIsRegistered }) => {
           <div className="authorize__img">
             <img className="logo__img" alt="logo" src={logo} />
           </div>
-          <h3 className="authorize__title">Authorization</h3>
+          <h3 className="authorize__title">Registration</h3>
           <div className="authorize__desc">
-            Please enter your email and password for further authorization
+            Please enter your details to register a new user and for further
+            authorization
           </div>
+        </div>
+        <div className="input__group">
+          <input
+            className="input"
+            type="text"
+            name="username"
+            placeholder="Username"
+            values={values.usename}
+            onBlur={handleBlur}
+            onChange={handleChange}
+          />
+          {touched.username && errors.username ? (
+            <div className="input__label">{errors.username}</div>
+          ) : null}
         </div>
         <div className="input__group">
           <input
@@ -100,22 +116,31 @@ const LoginForm = ({ setIsRegistered }) => {
             <div className="input__label">{errors.password}</div>
           ) : null}
         </div>
+        <div className="input__group">
+          <input
+            className="input"
+            type="password"
+            name="confirmPassword"
+            placeholder="Confirm Password"
+            values={values.confirmPassword}
+            onBlur={handleBlur}
+            onChange={handleChange}
+          />
+          {touched.confirmPassword && errors.confirmPassword ? (
+            <div className="input__label">{errors.confirmPassword}</div>
+          ) : null}
+        </div>
         {showError ? <div className="error">{showError}</div> : null}
         <div className="centered">
           <button className="btn" type="submit">
-            Login
+            Register
           </button>
           <div></div>
         </div>
-        <div className="centered centered-google">
-          <button className="btn btn-dark" onClick={signInWithGoogle}>
-            Login with Google
-          </button>
-        </div>
         <div className="form__user">
-          Don't have an account?
+          Already a user?
           <a className="form__link" href="/" onClick={handleUser}>
-            Register
+            Login
           </a>
         </div>
       </form>
@@ -123,4 +148,4 @@ const LoginForm = ({ setIsRegistered }) => {
   );
 };
 
-export default LoginForm;
+export default RegForm;

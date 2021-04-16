@@ -1,0 +1,39 @@
+.messenger {
+  display: grid;
+  grid-template-columns: 30% 1fr;
+  grid-template-rows: auto 67px 1200px;
+  grid-template-areas: 'bar bar' 'sidebar header' 'sidebar channel';
+  max-width: 1400px;
+  width: 100%;
+
+  background-color: $color_blue;
+
+  transform: translateY(-50%);
+
+  position: absolute;
+  top: 50%;
+
+  @media (max-width: $breakpoint_md) {
+    grid-template-rows: auto 67px calc(100vh - 95px);
+    grid-template-areas: 'bar bar' 'header header' 'channel channel';
+  }
+
+  @media (max-width: $breakpoint_sm) {
+    margin: 0 2px;
+  }
+}
+
+.messenger__bar {
+  grid-area: bar;
+  max-height: 22px;
+  height: 100%;
+  position: relative;
+
+  background-color: #242f3d;
+
+  font-size: 16px;
+  color: $color_textGray;
+  text-align: center;
+
+  z-index: 2;
+}

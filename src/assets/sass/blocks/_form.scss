@@ -3,3 +3,22 @@
   justify-content: center;
   flex-direction: column;
 }
+
+.form__user {
+  margin-top: 20px;
+
+  font-size: 14px;
+  color: $color_white;
+  text-align: center;
+}
+
+.form__link {
+  margin-left: 3px;
+
+  color: $color_blue;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

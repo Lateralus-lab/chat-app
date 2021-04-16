@@ -60,6 +60,20 @@ ul, ol {
 
 .centered {
   text-align: center;
+
+  &-google {
+    margin-top: 15px;
+  }
+}
+
+.error {
+  margin-bottom: 10px;
+  max-width: 280px; 
+  width: 100%;
+
+  font-size: 12px;
+  color: #d25151;
+  text-align: center;
 }
 
 .logo__img {
@@ -73,3 +87,13 @@ ul, ol {
 @import './blocks/form';
 @import './blocks/input';
 @import './blocks/btn';
+@import './blocks/main';
+@import './blocks/messenger';
+@import './blocks/header';
+@import './blocks/burger';
+@import './blocks/channel';
+@import './blocks/message';
+@import './blocks/write';
+@import './blocks/sidebar';
+@import './blocks/profile';
+@import './blocks/spinner';
