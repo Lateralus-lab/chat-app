@@ -60,6 +60,20 @@ ul, ol {
 
 .centered {
   text-align: center;
+
+  &-google {
+    margin-top: 15px;
+  }
+}
+
+.error {
+  margin-bottom: 10px;
+  max-width: 280px; 
+  width: 100%;
+
+  font-size: 12px;
+  color: #d25151;
+  text-align: center;
 }
 
 .logo__img {
