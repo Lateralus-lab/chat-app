@@ -62,7 +62,7 @@ const LoginForm = ({ setIsRegistered }) => {
 
   return (
     <div className="wrapper">
-      <form className="form" onSubmit={handleSubmit}>
+      <form className="form" autoComplete="off" onSubmit={handleSubmit}>
         <div className="authorize">
           <div className="authorize__img">
             <img className="logo__img" alt="logo" src={logo} />
@@ -108,7 +108,7 @@ const LoginForm = ({ setIsRegistered }) => {
           <div></div>
         </div>
         <div className="centered centered-google">
-          <button className="btn btn-dark" onClick={signInWithGoogle}>
+          <button className="btn btn-google" onClick={signInWithGoogle}>
             Login with Google
           </button>
         </div>

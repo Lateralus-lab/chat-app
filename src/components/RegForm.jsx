@@ -63,7 +63,7 @@ const RegForm = ({ setIsRegistered }) => {
 
   return (
     <div className="wrapper">
-      <form className="form" onSubmit={handleSubmit}>
+      <form className="form" autoComplete="off" onSubmit={handleSubmit}>
         <div className="authorize">
           <div className="authorize__img">
             <img className="logo__img" alt="logo" src={logo} />
