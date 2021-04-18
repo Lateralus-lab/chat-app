@@ -1,6 +1,6 @@
 <h3>Real-time chat app built with React/Firebase.</h3>
 
-<div>Live version of the app:</div>
+<div>Live version:</div>
 <a href="https://messenger-eli.netlify.app/" target="_blank">Click here to open the link</a>
 
 <h5>Stack:</h5>
